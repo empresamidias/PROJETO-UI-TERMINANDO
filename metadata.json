@@ -1,0 +1,5 @@
+{
+  "name": "AI Studio Clone",
+  "description": "A high-fidelity clone of Google AI Studio for managing prompts and previewing AI applications with project management and real-time chat testing.",
+  "requestFramePermissions": []
+}
