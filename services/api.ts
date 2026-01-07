@@ -87,8 +87,9 @@ export const generateCode = async (
         'ngrok-skip-browser-warning': 'true',
       },
       body: JSON.stringify({
-        projetoId: projectId,
-        mensagemUsuario: prompt,
+        // CORREÇÃO DOS NOMES AQUI:
+        projeto_id: projectId,   // O servidor espera projeto_id com underline
+        prompt: prompt,          // O servidor espera prompt e não mensagemUsuario
         historico: history.map(msg => ({
           role: msg.role,
           content: msg.content
@@ -106,8 +107,8 @@ export const generateCode = async (
     
     if (Array.isArray(arquivos)) {
       return arquivos.map((f: any) => ({
-        path: String(f.nome_arquivo || f.caminho || f.path || f.nome || 'unnamed_file'),
-        content: String(f.conteudo_texto || f.conteudo || f.content || '')
+        path: String(f.path || f.caminho || f.nome_arquivo || 'unnamed_file'),
+        content: String(f.content || f.conteudo || f.conteudo_texto || '')
       }));
     }
     
